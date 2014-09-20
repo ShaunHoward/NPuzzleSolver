@@ -102,8 +102,8 @@ public class PuzzleState {
          
          /* Copy value at this index in the puzzle to the puzzle state array. */
          puzzleArray[i][j] = puzzle.getNumber(i, j);
-         }
        }
+     }
      
         /* Set zero row position. */
         this.zeroRow = puzzle.getZeroRow();
@@ -143,8 +143,8 @@ public class PuzzleState {
           
           /* Copy value at this index of input puzzle state to this puzzle array. */
           puzzleArray[i][j] = state.getNumber(i, j); 
-          }
         }
+      }
    }
 
    /**
@@ -255,9 +255,9 @@ public class PuzzleState {
              /* Set the next state to the new instance of the input state. */
                     nextState = s.getClass().newInstance();
             } catch (InstantiationException e) {
-                    e.printStackTrace();
+                System.err.println("Error creating a new down-shifted puzzle state.");
             } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                System.err.println("Error accessing new puzzle instance.");
             }
             
             /* Copy contents of input state to new state. */
@@ -305,9 +305,9 @@ public class PuzzleState {
              /* Set the next state to the new instance of the input state. */
                     nextState = s.getClass().newInstance();
             } catch (InstantiationException e) {
-                    e.printStackTrace();
+                System.err.println("Error creating a new down-shifted puzzle state.");
             } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                System.err.println("Error accessing new puzzle instance.");
             }
             
             /* Copy contents of input state to new state. */
@@ -354,9 +354,9 @@ public class PuzzleState {
              /* Set the next state to the new instance of the input state. */
                     nextState = s.getClass().newInstance();
             } catch (InstantiationException e) {
-                    e.printStackTrace();
+                System.err.println("Error creating a new down-shifted puzzle state.");
             } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                System.err.println("Error accessing new puzzle instance.");
             }
             
             /* Copy contents of input state to new state. */
@@ -403,9 +403,9 @@ public class PuzzleState {
              /* Set the next state to the new instance of the input state. */
                     nextState = s.getClass().newInstance();
             } catch (InstantiationException e) {
-                    e.printStackTrace();
+                System.err.println("Error creating a new down-shifted puzzle state.");
             } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                System.err.println("Error accessing new puzzle instance.");
             }
             
             /* Copy contents of input state to new state. */
