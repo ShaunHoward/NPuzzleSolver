@@ -29,13 +29,10 @@ public class PuzzleMaker {
    */
   public static void main(String[] args){
     
-    try {
+    try (Scanner scanner = new Scanner(System.in)) {
       
       /* Puzzle to use. */
       Puzzle puzzle = Puzzle.getInstance();
-      
-      /* Scans input from command prompt. */
-      Scanner scanner = new Scanner(System.in);
       
       /* Converts String to Integer for size variable of puzzle. */
       int size = (int)Math.sqrt(scanner.nextInt() + 1);
@@ -49,8 +46,6 @@ public class PuzzleMaker {
       /* Checks to see if the arguments were entered correctly. */
       if (size < 2 || !(search.equals("bfs") || search.equals("dfs") ||
                         state.equals("goal") || state.equals("custom"))) {
-        
-        scanner.close();
         throw new UnsupportedOperationException();
       }
       
@@ -115,12 +110,12 @@ public class PuzzleMaker {
         System.out.println(sol.solve(puzzle));
       }
       
-    } catch (Exception e){ //Catch exception when making puzzle
-      
-      e.printStackTrace();
-      
-      System.out.println("Please type a puzzle size greater than 1, hit enter,"
+    } catch (UnsupportedOperationException uoe) { //Catch exception when making puzzle
+        System.err.println("Arguments were entered incorrectly. Try entering args again.");
+        System.err.println("Please type a puzzle size greater than 1, hit enter,"
                            + " and then type a solving type of bfs or dfs, then hit enter again!");
+    } finally {
+      System.exit(1);
     }
   }
 }
